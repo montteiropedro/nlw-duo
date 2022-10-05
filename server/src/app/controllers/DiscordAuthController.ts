@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 class DiscordAuthController {
   async redirect(req: Request, res: Response) {
     try {
-      return res.redirect("http://localhost:5173");
+      return res.redirect(process.env.CLIENT_URL!);
     }
     catch(error) {
       return res.sendStatus(400);
