@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String @id @default(uuid())
+  discordId    String @unique
+  accessToken  String
+  refreshToken String
+
+  ads Ad[]
+}
+
+model Game {
+  id        String @id @default(uuid())
+  title     String
+  bannerUrl String
+
+  ads Ad[]
+}
+
+model Ad {
+  id              String   @id @default(uuid())
+  gameId          String
+  userId          String
+  name            String
+  yearsPlaying    Int
+  discord         String
+  weekDays        String
+  hourStart       Int
+  hourEnd         Int
+  useVoiceChannel Boolean
+  createdAt       DateTime @default(now())
+
+  game Game @relation(fields: [gameId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
