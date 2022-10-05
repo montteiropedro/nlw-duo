@@ -3,7 +3,7 @@ import cors from "cors";
 import routes from "./routes";
 import passport from "passport";
 import { sessionConfig } from "./config/session";
-require("../src/strategies/discord");
+import "./strategies/discord";
 
 const app = express();
 
