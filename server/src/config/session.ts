@@ -28,7 +28,7 @@ export const sessionConfig = session({
     maxAge: 1000 * 60 * 60 * 24 // 24h
   },
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URL!,
+    mongoUrl: process.env.MONGO_DB_URL!,
     dbName: process.env.MONGO_DB_NAME!
   })
 });
