@@ -1,5 +1,5 @@
 import { X } from "phosphor-react";
-import styled, { css, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { THEME } from "../../../utils/theme";
 
 interface ICard {
@@ -76,11 +76,6 @@ const fadeIn = keyframes`
   }
 `;
 
-const showDiscordInfo = css`
-  display: flex;
-  animation: ${fadeIn} .5s;
-`;
-
 export const SDiscordInfo = styled(SCard)`
   position: absolute;
   inset: 0;
@@ -90,7 +85,7 @@ export const SDiscordInfo = styled(SCard)`
   align-items: center;
   justify-content: space-evenly;
 
-  ${props => props.$display && showDiscordInfo};
+  ${props => props.$display && "display: flex; animation: ${fadeIn} .5s;"};
 `;
 
 export const SButton = styled.button`
