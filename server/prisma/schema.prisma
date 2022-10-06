@@ -8,16 +8,18 @@ datasource db {
 }
 
 model User {
-  id           String @id @default(uuid())
-  discordId    String @unique
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  discordId    String   @unique
   accessToken  String
   refreshToken String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
 
   ads Ad[]
 }
 
 model Game {
-  id        String @id @default(uuid())
+  id        String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title     String
   bannerUrl String
 
@@ -25,9 +27,9 @@ model Game {
 }
 
 model Ad {
-  id              String   @id @default(uuid())
-  gameId          String
-  userId          String
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  gameId          String   @db.Uuid
+  userId          String   @db.Uuid
   name            String
   yearsPlaying    Int
   discord         String
