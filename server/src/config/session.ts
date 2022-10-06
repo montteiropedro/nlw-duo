@@ -24,6 +24,7 @@ export const sessionConfig = session({
   saveUninitialized: false,
   cookie: {
     sameSite: "none",
+    secure: true,
     maxAge: 1000 * 60 * 60 * 24 // 24h
   },
   store: MongoStore.create({
