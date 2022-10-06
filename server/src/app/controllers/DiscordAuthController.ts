@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 class DiscordAuthController {
   async redirect(req: Request, res: Response) {
     try {
+      res.header("Access-Control-Allow-Credentials", "true")
       return res.redirect(process.env.CLIENT_URL!);
     }
     catch(error) {
