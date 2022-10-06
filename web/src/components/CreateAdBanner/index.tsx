@@ -10,7 +10,7 @@ import {
 import { CreateAdModal } from "../CreateAdModal";
 
 export function CreateAdBanner() {
-  const { isAuthenticated, user, signIn, logOut } = useContext(AuthContext);
+  const { isAuthenticated, user, signIn, signOut } = useContext(AuthContext);
 
   return (
     <SBanner>
@@ -21,7 +21,7 @@ export function CreateAdBanner() {
 
       <SContainer>
         {isAuthenticated && user ? (
-          <SLogoutButton onClick={logOut} title={`${user.username}#${user.discriminator}`}>
+          <SLogoutButton onClick={signOut} title={`${user.username}#${user.discriminator}`}>
             <SSignOutIcon size={24} weight="bold" />
             <SUsername>{`${user.username}#${user.discriminator}`}</SUsername>
             <SUserAvatar

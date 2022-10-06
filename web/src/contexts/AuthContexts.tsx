@@ -14,7 +14,7 @@ interface AuthContext {
   isAuthenticated: boolean;
   user: User | null;
   signIn: () => void;
-  logOut: () => void;
+  signOut: () => void;
 }
 
 interface AuthProvider {
@@ -39,15 +39,15 @@ export function AuthProvider({ children }: AuthProvider) {
   }, []);
 
   function signIn() {
-    window.location.href = `${import.meta.env.VITE_BASE_URL}/auth/discord`;
+    window.location.href = `${import.meta.env.VITE_API_URL}/auth/discord`;
   }
 
-  async function logOut() {
+  async function signOut() {
     try {
       await api.delete("/auth/logout", {
         withCredentials: true
       });
-      window.location.href = "http://localhost:5173/";
+      window.location.href = import.meta.env.BASE_URL;
     }
     catch (error) {
       console.log(error);
@@ -55,7 +55,7 @@ export function AuthProvider({ children }: AuthProvider) {
   }
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, signIn, logOut }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, signIn, signOut }}>
       { children }
     </AuthContext.Provider>
   );
