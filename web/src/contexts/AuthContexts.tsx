@@ -39,7 +39,7 @@ export function AuthProvider({ children }: AuthProvider) {
   }, []);
 
   function signIn() {
-    window.location.href = "http://localhost:3333/api/auth/discord";
+    window.location.href = `${import.meta.env.VITE_BASE_URL}/auth/discord`;
   }
 
   async function logOut() {
