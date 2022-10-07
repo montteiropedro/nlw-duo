@@ -23,7 +23,6 @@ export const sessionConfig = session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    httpOnly: false,
     sameSite: "none",
     secure: true,
     maxAge: 1000 * 60 * 60 * 24 // 24h
