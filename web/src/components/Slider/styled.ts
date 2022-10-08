@@ -6,6 +6,7 @@ export const SContainer = styled.div`
   &.navigation--wrapper {
     display: flex;
     align-items: center;
+    align-self: stretch;
   }
 `;
 

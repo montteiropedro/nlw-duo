@@ -66,7 +66,7 @@ export const SPulseAnimation = styled.span`
 `;
 
 export const SNoGamesMessage = styled.strong`
-  margin: 6rem 0;
+  margin: 2rem 0 6rem;
   display: block;
   color: ${THEME.COLORS.ZINC_400};
   font-size: ${THEME.FONT_SIZE.MD};

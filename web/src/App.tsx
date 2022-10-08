@@ -8,6 +8,7 @@ import { CreateAdBanner } from "./components/CreateAdBanner";
 import { SContainer, SLogo, SNoGamesMessage, SPulseAnimation, STitle } from "./styles/App.styled";
 
 import { Slider } from "./components/Slider";
+import { Loading } from "./components/Loading";
 import { api } from "./api";
 
 interface GameProps {
@@ -20,15 +21,17 @@ interface GameProps {
 }
 
 function App() {
+  const [loading, setLoading] = useState<boolean>(true);
   const [games, setGames] = useState<GameProps[]>([]);
 
   useEffect(() => {
-    try {
-      api.get("/games").then(res => setGames(res.data));
-    }
-    catch (error) {
-      console.log(error);
-    }
+    (async () => {
+      await api.get("/games")
+      .then(res => setGames(res.data))
+      .catch(error => console.log(error));
+
+      setLoading(false);
+    })();
   }, []);
 
   return (
@@ -40,22 +43,25 @@ function App() {
       </STitle>
 
       <SContainer className="inner">
-        {games.length ? (
-          <Slider>
-            {games.map(game => (
-              <GameBanner
-                key={game.id}
-                gameId={game.id}
-                title={game.title}
-                adsCount={game._count.ads}
-                bannerUrl={game.bannerUrl}
-              />
-            ))}
-          </Slider>
+        {loading ? (
+          <Loading margin="2rem auto 6rem" />
         ) : (
-          <SNoGamesMessage>Opa! parece que a lista de jogos está vazia.</SNoGamesMessage>
+          games.length ? (
+            <Slider>
+              {games.map(game => (
+                <GameBanner
+                  key={game.id}
+                  gameId={game.id}
+                  title={game.title}
+                  adsCount={game._count.ads}
+                  bannerUrl={game.bannerUrl}
+                />
+              ))}
+            </Slider>
+          ) : (
+            <SNoGamesMessage>Opa! parece que a lista de jogos está vazia.</SNoGamesMessage>
+          )
         )}
-
         <CreateAdBanner />
       </SContainer>
     </SContainer>

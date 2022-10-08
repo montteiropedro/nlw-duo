@@ -4,7 +4,6 @@ import { THEME } from "../../utils/theme";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export const SHeader = styled.header`
-  margin-inline: .5rem;
   padding: 1rem;
   display: flex;
   justify-content: center;
@@ -17,6 +16,10 @@ export const SHeader = styled.header`
     flex-direction: column;
     align-items: flex-start;
     gap: .25rem;
+  }
+
+  @media (min-width: 768px) {
+    margin-inline: .5rem;
   }
 `;
 

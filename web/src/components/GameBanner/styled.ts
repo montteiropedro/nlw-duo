@@ -6,7 +6,6 @@ export const SDialogTrigger = styled(Dialog.Trigger)`
   cursor: pointer;
   position: relative;
   color: #FFF;
-  border-radius: ${THEME.BORDER.ROUNDED_LG};
   text-align: left;
   overflow: hidden;
   outline: none;

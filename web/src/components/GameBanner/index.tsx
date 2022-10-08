@@ -24,20 +24,19 @@ export interface AdProps {
 }
 
 export function GameBanner({ gameId, title, adsCount, bannerUrl }: GameBannerProps) {
+  const [loading, setLoading] = useState<boolean>(true);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [ads, setAds] = useState<AdProps[]>([]);
 
   async function handleFetchAds() {
-    try {
-      await api.get(`/games/${gameId}/ads`)
-      .then(res => setAds(res.data));
-    }
-    catch (error) {
-      console.error;
-    };
+    await api.get(`/games/${gameId}/ads`)
+    .then(res => setAds(res.data))
+    .catch(error => console.log(error));
+
+    setLoading(false);
   }
 
-  // TODO: Pesquisar sobre useContext para poder atualizar o card da tela inicial quando um novo anúncio for criado.
+  // TODO: atualizar o card da tela inicial quando um novo anúncio for criado.
 
   return (
     <Dialog.Root open={isModalOpen} onOpenChange={setIsModalOpen}>
@@ -59,7 +58,12 @@ export function GameBanner({ gameId, title, adsCount, bannerUrl }: GameBannerPro
         </SGradient>
       </SDialogTrigger>
 
-      <AdsModal title={title} bannerUrl={bannerUrl} ads={ads}/>
+      <AdsModal
+        title={title}
+        bannerUrl={bannerUrl}
+        ads={ads}
+        loading={loading}
+      />
     </Dialog.Root>
   );
 }

@@ -15,7 +15,7 @@ export const SToggleRoot = styled(ToggleGroup.Root)`
 
 export const SToggleItem = styled(ToggleGroup.Item)`
   cursor: pointer;
-  height: 2rem;
+  height: 2.5rem;
   width: 100%;
   color: #FFF;
   font-weight: ${THEME.FONT_WEIGHT.BOLD};
@@ -27,9 +27,5 @@ export const SToggleItem = styled(ToggleGroup.Item)`
 
   &[data-state="off"] {
     background-color: ${THEME.COLORS.ZINC_900}
-  }
-
-  @media (min-width: 426px) {
-    width: 2rem;
   }
 `;

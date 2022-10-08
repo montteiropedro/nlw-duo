@@ -5,7 +5,7 @@ import { z } from "zod";
 
 import { GameController, MagnifyingGlassPlus } from "phosphor-react";
 import {
-  SDiv, SLabel, SInput, SFooter, SButton, SFormError,
+  SDiv, SLabel, SInput, SFooter, SButton, SFormError, STimeInput,
   SDialogTrigger, SDialogClose, SDialogContent, SDialogOverlay, SDialogTitle,
 } from "./styled";
 
@@ -16,6 +16,7 @@ import { RadixSelect } from "../Radix/RadixSelect";
 
 import { api } from "../../api";
 import axios from "axios";
+import { open } from "fs";
 
 interface FormProps {
   gameId: string;
@@ -61,8 +62,8 @@ const AdSchema = z.object({
 }).strict();
 
 export function CreateAdModal() {
-  const [games, setGames] = useState<ModalGameProps[]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [games, setGames] = useState<ModalGameProps[]>([]);
 
   const { control, register, handleSubmit, formState: { errors } } = useForm<FormProps>({
     resolver: zodResolver(AdSchema)
@@ -168,21 +169,19 @@ export function CreateAdModal() {
               <SDiv gap=".5rem" marginB="none" className="flex">
                 <SLabel htmlFor="hourStart" className="font-semibold">Qual horário do dia?</SLabel>
                 <SDiv gap=".5rem" className="grid hours">
-                  <SInput
+                  <STimeInput
                     id="hourStart"
                     {...register("hourStart")}
                     required
-                    defaultValue="12:00"
                     type="time"
-                    placeholder="De"
+                    defaultValue={"12:00"}
                   />
-                  <SInput
+                  <STimeInput
                     id="hourEnd"
                     {...register("hourEnd")}
                     required
-                    defaultValue="12:00"
                     type="time"
-                    placeholder="Até"
+                    defaultValue={"12:00"}
                   />
                 </SDiv>
               </SDiv>

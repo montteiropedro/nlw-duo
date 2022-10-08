@@ -10,14 +10,16 @@ import { Slider } from "./Slider";
 import { Card } from "./Card";
 
 import { AdProps } from "../GameBanner";
+import { Loading } from "../Loading";
 
 interface AdsModalProps {
   title: string,
   bannerUrl: string;
   ads: AdProps[];
+  loading: boolean;
 }
 
-export function AdsModal({ title, bannerUrl, ads }: AdsModalProps) {
+export function AdsModal({ title, bannerUrl, ads, loading }: AdsModalProps) {
   return (
     <Dialog.Portal>
       <SDialogOverlay />
@@ -30,27 +32,31 @@ export function AdsModal({ title, bannerUrl, ads }: AdsModalProps) {
             <SSubtitle>Conecte-se e comece a jogar.</SSubtitle>
           </div>
         </SHeader>
-          
-        {ads.length ? (
-          <Slider>
-            {ads.map(ad => (
-              <Card
-                key={ad.id}
-                id={ad.id}
-                name={ad.name}
-                yearsPlaying={ad.yearsPlaying}
-                weekDays={ad.weekDays}
-                hourStart={ad.hourStart}
-                hourEnd={ad.hourEnd}
-                useVoiceChannel={ad.useVoiceChannel}
-              />
-            ))}
-          </Slider>
+
+        {loading ? (  
+          <Loading margin="6rem auto" />
         ) : (
-          <SNoAdsMessage>
-            <SmileySad size={64} weight="bold" />
-            <span>Opa! parece que estamos sem anúncios.</span>
-          </SNoAdsMessage>
+          ads.length ? (
+            <Slider>
+              {ads.map(ad => (
+                <Card
+                  key={ad.id}
+                  id={ad.id}
+                  name={ad.name}
+                  yearsPlaying={ad.yearsPlaying}
+                  weekDays={ad.weekDays}
+                  hourStart={ad.hourStart}
+                  hourEnd={ad.hourEnd}
+                  useVoiceChannel={ad.useVoiceChannel}
+                />
+              ))}
+            </Slider>
+          ) : (
+            <SNoAdsMessage>
+              <SmileySad size={64} weight="bold" />
+              <span>Opa! parece que estamos sem anúncios.</span>
+            </SNoAdsMessage>
+          ) 
         )}
 
         <SFooter>

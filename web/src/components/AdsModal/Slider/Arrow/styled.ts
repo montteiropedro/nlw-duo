@@ -6,7 +6,7 @@ import { CaretLeft, CaretRight } from "phosphor-react";
 export const SCaretLeft = styled(CaretLeft)`
   display: none;
 
-  @media (min-width: 541px) {
+  @media (min-width: 768px) {
     cursor: pointer;
     display: block;
     color: ${THEME.COLORS.ZINC_400};
@@ -20,7 +20,7 @@ export const SCaretLeft = styled(CaretLeft)`
 export const SCaretRight = styled(CaretRight)`
   display: none;
 
-  @media (min-width: 541px) {
+  @media (min-width: 768px) {
     cursor: pointer;
     display: block;
     color: ${THEME.COLORS.ZINC_400};

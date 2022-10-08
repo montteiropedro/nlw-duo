@@ -3,13 +3,17 @@ import { THEME } from "../../utils/theme";
 
 import * as Dialog from "@radix-ui/react-dialog";
 
-interface Props {
+interface DivLabelProps {
   marginB?: string;
   direction?: string;
   gap?: string;
 }
 
-export const SDiv = styled.div<Props>`
+interface TimeInputProps {
+  placeholder?: string;
+}
+
+export const SDiv = styled.div<DivLabelProps>`
   &.flex {
     margin-bottom: ${props => props.marginB || "1rem"};
     display: flex;
@@ -34,7 +38,7 @@ export const SDiv = styled.div<Props>`
   }
 `;
 
-export const SLabel = styled.label<Props>`
+export const SLabel = styled.label<DivLabelProps>`
   &.font-semibold {
     font-size: ${THEME.FONT_SIZE.SM};
     font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
@@ -56,7 +60,7 @@ export const SLabel = styled.label<Props>`
 `;
 
 export const SInput = styled.input`
-  padding: .85rem 1rem;
+  padding: .875rem 1rem;
   width: 100%;
   color: #FFF;
   font-size: ${THEME.FONT_SIZE.SM};
@@ -78,20 +82,34 @@ export const SInput = styled.input`
   &[type="number"] {
     -moz-appearance: textfield;
   }
+`;
 
-  &[type="time"] {
+export const STimeInput = styled.input<TimeInputProps>`
+  padding: .875rem 1rem;
+  width: 100%;
+  color: #FFF;
+  font-size: ${THEME.FONT_SIZE.SM};
+  text-align: center;
+  border-radius: ${THEME.BORDER.ROUNDED};
+  background-color: ${THEME.COLORS.ZINC_900};
+  outline: none;
+  transition: all ease-in-out 50000s 1s;
+  
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+  @media (min-width: 426px) {
+    margin: 0;
+    padding-inline: .4rem;
     font-size: ${THEME.FONT_SIZE.XS};
-    padding-inline: 1rem;
-    
+    text-align: left;
+
     &::-webkit-calendar-picker-indicator {
+      display: block;
       margin: 0;
       padding: 0;
       filter: invert(30%) sepia(87%) saturate(1233%) hue-rotate(235deg) brightness(113%) contrast(93%);
-    }
-
-    @media (min-width: 426px) {
-      margin: 0;
-      padding-inline: .5rem;
     }
   }
 `;
