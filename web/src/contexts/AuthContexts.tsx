@@ -13,8 +13,8 @@ interface User {
 interface AuthContext {
   isAuthenticated: boolean;
   user: User | null;
-  signIn: () => void;
-  signOut: () => void;
+  login: () => void;
+  logout: () => void;
 }
 
 interface AuthProvider {
@@ -38,11 +38,11 @@ export function AuthProvider({ children }: AuthProvider) {
     })();
   }, []);
 
-  function signIn() {
+  function login() {
     window.location.href = `${import.meta.env.VITE_API_URL}/auth/discord`;
   }
 
-  async function signOut() {
+  async function logout() {
     try {
       await api.delete("/auth/logout", {
         withCredentials: true
@@ -55,7 +55,7 @@ export function AuthProvider({ children }: AuthProvider) {
   }
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, signIn, signOut }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
       { children }
     </AuthContext.Provider>
   );

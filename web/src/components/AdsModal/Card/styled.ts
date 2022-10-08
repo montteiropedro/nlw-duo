@@ -84,11 +84,11 @@ const showDiscordInfo = css`
 export const SDiscordInfo = styled(SCard)`
   position: absolute;
   inset: 0;
-  padding: 1.5rem;
+  padding: 1.25rem;
 
   display: none;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   ${props => props.$display && showDiscordInfo};
 `;

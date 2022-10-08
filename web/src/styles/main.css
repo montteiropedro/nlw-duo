@@ -20,8 +20,14 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: .7rem;
+  width: 10px;
   height: 90%;
+}
+
+@media (max-width: 425px) {
+  ::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 ::-webkit-scrollbar-track {

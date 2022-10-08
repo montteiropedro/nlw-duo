@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import { SCaretLeft, SCaretRight } from "./styled";
 import { THEME } from "../../../utils/theme";
 
@@ -9,7 +8,7 @@ interface ArrowProps {
 }
 
 export function Arrow({ left, disabled, onClick }: ArrowProps) {
-  const status = disabled ? "arrow-disabled" : "";
+  const status = disabled ? "arrow--disabled" : "";
 
   return(
     <>

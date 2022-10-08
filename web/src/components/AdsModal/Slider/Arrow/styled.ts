@@ -4,21 +4,29 @@ import { THEME } from "../../../../utils/theme";
 import { CaretLeft, CaretRight } from "phosphor-react";
 
 export const SCaretLeft = styled(CaretLeft)`
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: -3%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  color: ${THEME.COLORS.ZINC_400};
+  display: none;
+
+  @media (min-width: 541px) {
+    cursor: pointer;
+    display: block;
+    color: ${THEME.COLORS.ZINC_400};
+
+    &.arrow--disabled {
+      color: ${THEME.COLORS.ZINC_600}
+    }
+  }
 `;
 
 export const SCaretRight = styled(CaretRight)`
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: -3%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  color: ${THEME.COLORS.ZINC_400};
+  display: none;
+
+  @media (min-width: 541px) {
+    cursor: pointer;
+    display: block;
+    color: ${THEME.COLORS.ZINC_400};
+
+    &.arrow--disabled {
+      color: ${THEME.COLORS.ZINC_600}
+    }
+  }
 `;

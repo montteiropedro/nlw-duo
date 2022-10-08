@@ -6,7 +6,6 @@ import * as Dialog from "@radix-ui/react-dialog";
 interface Props {
   marginB?: string;
   direction?: string;
-  gridCols?: string;
   gap?: string;
 }
 
@@ -21,17 +20,31 @@ export const SDiv = styled.div<Props>`
   &.grid {
     margin-bottom: ${props => props.marginB || "1rem"};
     display: grid;
-    grid-template-columns: repeat(${props => props.gridCols || "2"}, minmax(0, 1fr));
-    gap: ${props => props.gap};
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    
+    &.hours {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 426px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: ${props => props.gap};
+    }
   }
 `;
 
 export const SLabel = styled.label<Props>`
   &.font-semibold {
+    font-size: ${THEME.FONT_SIZE.SM};
     font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
+
+    @media (min-width: 321px) {
+      font-size: ${THEME.FONT_SIZE.MD};
+    }
   }
 
-  &.discord-label {
+  &.flex {
     cursor: pointer;
     margin-bottom: 2rem;
     display: flex;
@@ -85,12 +98,12 @@ export const SFooter = styled.footer`
 
 export const SButton = styled.button`
   cursor: pointer;
-  padding: .75rem 1.25rem;
+  padding: .75rem 1rem;
   display: flex;
   align-items: center;
   gap: .75rem;
   color: #FFF;
-  font-size: ${THEME.FONT_SIZE.MD};
+  font-size: ${THEME.FONT_SIZE.SM};
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   border-radius: ${THEME.BORDER.ROUNDED_MD};
   background-color: ${THEME.COLORS.PRIMARY};
@@ -98,6 +111,11 @@ export const SButton = styled.button`
 
   &:hover {
     background-color: ${THEME.COLORS.PRIMARY_HOVER};
+  }
+
+  @media (min-width: 426px) {
+    padding: .75rem 1.25rem;
+    font-size: ${THEME.FONT_SIZE.MD};
   }
 `;
 
@@ -112,17 +130,19 @@ export const SFormError = styled.span`
 export const SDialogTrigger = styled(Dialog.Trigger)`
   cursor: pointer;
   padding: .75rem 1rem;
+  height: 50px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: .75rem;
   color: #FFF;
   font-size: ${THEME.FONT_SIZE.MD};
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   border-radius: ${THEME.BORDER.ROUNDED_MD};
   background-color: ${THEME.COLORS.PRIMARY};
-  transition: all ease-in-out 350ms;
-
+  
   white-space: nowrap;
+  transition: all ease-in-out 350ms;
   
   &:hover {
     background-color: ${THEME.COLORS.PRIMARY_HOVER};
@@ -140,32 +160,46 @@ export const SDialogContent = styled(Dialog.Content)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 2rem 2.5rem;
-  width: 488px;
+  padding: 1.5rem 1rem;
+  width: min(98vw, 488px);
   max-height: 98vh;
   color: #FFF;
   border-radius: ${THEME.BORDER.ROUNDED_LG};
   background-color: ${THEME.COLORS.SHAPE};
   overflow-y: scroll;
+
+  @media (min-width: 426px) {
+    padding: 2rem 2.5rem;
+  }
 `;
 
 export const SDialogTitle = styled(Dialog.Title)`
   margin: 1.5rem 0 2rem;
-  font-size: 1.875rem;
+  font-size: ${THEME.FONT_SIZE.LG};
   font-weight: ${THEME.FONT_WEIGHT.BLACK};
-  line-height: 2.25rem;
+
+  @media (min-width: 426px) {
+    font-size: ${THEME.FONT_SIZE.XL};
+  }
 `;
 
 export const SDialogClose = styled(Dialog.Close)`
   cursor: pointer;
-  padding: .75rem 1.25rem;
+  padding: .75rem 1rem;
   color: #FFF;
-  font-size: ${THEME.FONT_SIZE.MD};
+  font-size: ${THEME.FONT_SIZE.SM};
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
   border-radius: ${THEME.BORDER.ROUNDED_MD};
   background-color: ${THEME.COLORS.ZINC_500};
+  
   transition: all ease-in-out 350ms;
+  
   &:hover {
     background-color: ${THEME.COLORS.ZINC_600};
+  }
+
+  @media (min-width: 426px) {
+    padding: .75rem 1.25rem;
+    font-size: ${THEME.FONT_SIZE.MD};
   }
 `;

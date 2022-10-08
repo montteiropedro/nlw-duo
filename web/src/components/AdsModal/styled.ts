@@ -4,6 +4,7 @@ import { THEME } from "../../utils/theme";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export const SHeader = styled.header`
+  margin-inline: .5rem;
   padding: 1rem;
   display: flex;
   justify-content: center;
@@ -44,9 +45,13 @@ export const SNoAdsMessage = styled.div`
   align-items: center;
   gap: 1rem;
   color: ${THEME.COLORS.ZINC_400};
-  font-size: ${THEME.FONT_SIZE.LG};
+  font-size: ${THEME.FONT_SIZE.MD};
   font-weight: ${THEME.FONT_WEIGHT.BOLD};
   text-align: center;
+
+  @media (min-width: 376px) {
+    font-size: ${THEME.FONT_SIZE.LG};
+  }
 `;
 
 export const SFooter = styled.footer`
@@ -69,7 +74,7 @@ export const SDialogContent = styled(Dialog.Content)`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 1.5rem 1rem;
-  width: min(90vw, 1440px);
+  width: min(98vw, 1440px);
   max-height: 98vh;
   display: flex;
   flex-direction: column;
@@ -77,9 +82,9 @@ export const SDialogContent = styled(Dialog.Content)`
   color: #FFF;
   border-radius: ${THEME.BORDER.ROUNDED_LG};
   background-color: ${THEME.COLORS.SHAPE};
-  overflow: hidden;
+  overflow-y: scroll;
 
-  @media (min-width: 768px) {
+  @media (min-width: 541px) {
     padding: 2rem 2.5rem;
     overflow-y: scroll;
   }
@@ -102,6 +107,7 @@ export const SDialogTitle = styled(Dialog.Title)`
 
 export const SDialogClose = styled(Dialog.Close)`
   cursor: pointer;
+  margin-right: .5rem;
   padding: .75rem 1.25rem;
   align-self: center;
   color: #FFF;

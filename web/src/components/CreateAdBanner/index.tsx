@@ -4,13 +4,13 @@ import { AuthContext } from "../../contexts/AuthContexts";
 import { DiscordLogo } from "phosphor-react";
 import {
   SBanner, SHeader, STitle, SText, SLoginButton, SContainer,
-  SUsername, SUserAvatar, SLogoutButton, SSignOutIcon
+  SUsername, SUserAvatar, SLogoutButton, SLogoutIcon
 } from "./styled";
 
 import { CreateAdModal } from "../CreateAdModal";
 
 export function CreateAdBanner() {
-  const { isAuthenticated, user, signIn, signOut } = useContext(AuthContext);
+  const { isAuthenticated, user, login, logout } = useContext(AuthContext);
 
   return (
     <SBanner>
@@ -21,9 +21,9 @@ export function CreateAdBanner() {
 
       <SContainer>
         {isAuthenticated && user ? (
-          <SLogoutButton onClick={signOut} title={`${user.username}#${user.discriminator}`}>
-            <SSignOutIcon size={24} weight="bold" />
-            <SUsername>{`${user.username}#${user.discriminator}`}</SUsername>
+          <SLogoutButton onClick={logout} title={`${user.username}#${user.discriminator}`}>
+            <SLogoutIcon size={24} weight="bold" />
+            <SUsername>{user.username}</SUsername>
             <SUserAvatar
               src={user.avatar ?
                 `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
@@ -33,7 +33,7 @@ export function CreateAdBanner() {
             />
           </SLogoutButton>
         ) : (
-          <SLoginButton onClick={signIn}>
+          <SLoginButton onClick={login}>
             <DiscordLogo size={24} color="white" />
             Entrar com Discord
           </SLoginButton>

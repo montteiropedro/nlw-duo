@@ -5,10 +5,10 @@ import logoImg from "./assets/logo-nlw-esports.svg";
 
 import { GameBanner } from "./components/GameBanner";
 import { CreateAdBanner } from "./components/CreateAdBanner";
-import { SContainer, SNoGamesMessage, SPulseAnimation, STitle } from "./styles/App.styled";
+import { SContainer, SLogo, SNoGamesMessage, SPulseAnimation, STitle } from "./styles/App.styled";
 
-import { api } from "./api";
 import { Slider } from "./components/Slider";
+import { api } from "./api";
 
 interface GameProps {
   id: string;
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <SContainer className="outer">
-      <img src={logoImg} alt="NLW eSports" />
+      <SLogo src={logoImg} alt="NLW eSports" />
       
       <STitle>
         Seu <SPulseAnimation>duo</SPulseAnimation> está aqui.

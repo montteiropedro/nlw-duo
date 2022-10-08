@@ -15,14 +15,12 @@ const flow = keyframes`
 `;
 
 export const SBanner = styled.div`
-  margin: .5rem;
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  align-self: stretch;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
   border-radius: .5rem;
 
   //  Border Gradient
@@ -33,9 +31,12 @@ export const SBanner = styled.div`
   border-top: 4px solid transparent;
   animation: ${flow} 5s ease infinite alternate;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 541px) {
+    margin-inline: 4.5rem;
+  }
+
+  @media (min-width: 1025px) {
     flex-direction: row;
-    gap: 0;
   }
 `;
 
@@ -53,8 +54,12 @@ export const SHeader = styled.div`
 export const STitle = styled.strong`
   display: block;
   color: #FFF;
-  font-size: ${THEME.FONT_SIZE.LG};
+  font-size: 1.25rem;
   font-weight: ${THEME.FONT_WEIGHT.BLACK};
+
+  @media (min-width: 376px) {
+    font-size: ${THEME.FONT_SIZE.LG};
+  }
 `;
 
 export const SText = styled.span`
@@ -77,8 +82,10 @@ export const SContainer = styled.div`
 export const SLoginButton = styled.button`
   cursor: pointer;
   padding: .75rem 1rem;
+  height: 50px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: .75rem;
   color: #FFF;
   font-size: ${THEME.FONT_SIZE.MD};
@@ -94,11 +101,12 @@ export const SLoginButton = styled.button`
 
 export const SLogoutButton = styled.button`
   cursor: pointer;
-  padding: 0 .15rem 0 1.25rem;
+  padding: .25rem .25rem .25rem 1rem;
+  height: 50px;
+  width: 250px;
   display: flex;
-  align-self: stretch;
   align-items: center;
-  gap: .75rem;
+  justify-content: space-between;
   color: #FFF;
   font-size: ${THEME.FONT_SIZE.MD};
   font-weight: ${THEME.FONT_WEIGHT.SEMI_BOLD};
@@ -113,7 +121,7 @@ export const SLogoutButton = styled.button`
   }
 `;
 
-export const SSignOutIcon = styled(SignOut)`
+export const SLogoutIcon = styled(SignOut)`
   transform: rotate(180deg);
 `;
 

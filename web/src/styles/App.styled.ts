@@ -11,8 +11,12 @@ export const SContainer = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media (min-width: 481px) {
-      padding: 0 2.5rem;
+    @media (min-width: 426px) and (max-width: 768px) {
+      padding: 0 2rem;
+    }
+
+    @media (min-width: 769px) {
+      padding: 0 3rem;
     }
   }
   
@@ -25,14 +29,24 @@ export const SContainer = styled.div`
   }
 `;
 
+export const SLogo = styled.img`
+  @media (max-width: 425px) {
+    height: 120px;
+  }
+`;
+
 export const STitle = styled.h1`
-  margin: 5rem .5rem 0;
-  font-size: 3rem;
-  line-height: 1;
+  margin: 3rem .5rem 0;
+  font-size: 2rem;
   color: #FFF;
   font-weight: ${THEME.FONT_WEIGHT.BLACK};
 
-  @media (min-width: 480px) {
+  @media (min-width: 376px) and (max-width: 425px) {
+    font-size: 2.25rem;
+  }
+
+  @media (min-width: 426px) {
+    margin: 5rem .5rem 0;
     font-size: 3.75rem;
   }
 `;
@@ -55,8 +69,11 @@ export const SNoGamesMessage = styled.strong`
   margin: 6rem 0;
   display: block;
   color: ${THEME.COLORS.ZINC_400};
-  font-size: 1.875rem;
+  font-size: ${THEME.FONT_SIZE.MD};
   font-weight: ${THEME.FONT_WEIGHT.BOLD};
-  line-height: 2.25rem;
   text-align: center;
+  
+  @media (min-width: 376px) {
+    font-size: ${THEME.FONT_SIZE.LG};
+  }
 `;

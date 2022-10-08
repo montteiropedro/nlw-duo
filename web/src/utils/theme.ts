@@ -20,7 +20,8 @@ export const THEME = {
     XS: "0.75rem",
     SM: ".875rem",
     MD: "1rem",
-    LG: "1.5rem"
+    LG: "1.5rem",
+    XL: "1.875rem"
   },
 
   FONT_WEIGHT: {

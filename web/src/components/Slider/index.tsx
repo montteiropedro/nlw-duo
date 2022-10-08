@@ -2,7 +2,7 @@ import { useKeenSlider } from "keen-slider/react";
 import React, { useState } from "react";
 import { Arrow } from "./Arrow";
 
-import { SContainer, SSlider } from "./styled";
+import { SContainer, SReturnStart, SSlider } from "./styled";
 
 interface SliderProps {
   children?: React.ReactNode;
@@ -20,57 +20,62 @@ export function Slider({ children }: SliderProps) {
       setLoaded(true);
     },
     slides: {
-      perView: 6,
-      spacing: 24
+      perView: 1.5,
+      spacing: 20
     },
     breakpoints: {
-      "(max-width: 480px)": {
+      "(min-width: 321px) and (max-width: 425px)": {
         slides: {
           perView: 2,
-          spacing: 20
+          spacing: 15
         }
       },
-      "(min-width: 481px) and (max-width: 768px)": {
+      "(min-width: 426px) and (max-width: 768px)": {
         slides: {
-          perView: 3,
-          spacing: 20
+          perView: 3.5,
+          spacing: 15
         }
       },
-      "(min-width: 769px) and (max-width: 1279px)": {
+      "(min-width: 769px) and (max-width: 1024px)": {
         slides: {
           perView: 4,
           spacing: 20
         }
       },
-      "(min-width: 1279px)": {
+      "(min-width: 1025px) and (max-width: 1440px)": {
+        slides: {
+          perView: 5,
+          spacing: 20
+        }
+      },
+      "(min-width: 1441px)": {
         slides: {
           perView: 6,
           spacing: 20
         }
       }
-    },
+    }
   });
 
   return (
     <SContainer className="navigation--wrapper">
-      <SContainer className="slider--wrapper">
-        <SSlider ref={sliderRef} className="keen-slider">
-          {children}
-        </SSlider>
-      </SContainer>
       {loaded && instanceRef.current && (
-        <>
-          <Arrow 
-            left
-            onClick={e => e.stopPropagation() || instanceRef.current?.prev()}
-            disabled={currentSlide === 0}
-          />
+        <Arrow 
+          left
+          onClick={e => e.stopPropagation() || instanceRef.current?.prev()}
+          disabled={currentSlide === 0}
+        />
+      )}
 
-          <Arrow 
-            onClick={e => e.stopPropagation() || instanceRef.current?.next()}
-            disabled={currentSlide === instanceRef.current.track.details.slides.length - 1}
-          />
-        </>
+      <SSlider ref={sliderRef} className="keen-slider">
+        {children}
+      </SSlider>
+
+      {loaded && instanceRef.current && (
+        <Arrow 
+          onClick={e => e.stopPropagation() || instanceRef.current?.next()}
+          disabled={currentSlide === instanceRef.current.track.details.slides.length - 1}
+        />
       )}
     </SContainer>
   );

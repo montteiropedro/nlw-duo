@@ -8,7 +8,7 @@ interface ArrowProps {
 }
 
 export function Arrow({ left, disabled, onClick }: ArrowProps) {
-  const status = disabled ? "arrow-disabled" : "";
+  const status = disabled ? "arrow--disabled" : "";
 
   return(
     <>

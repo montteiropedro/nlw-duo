@@ -167,7 +167,7 @@ export function CreateAdModal() {
 
               <SDiv gap=".5rem" marginB="none" className="flex">
                 <SLabel htmlFor="hourStart" className="font-semibold">Qual horário do dia?</SLabel>
-                <SDiv gap=".5rem" className="grid">
+                <SDiv gap=".5rem" className="grid hours">
                   <SInput
                     id="hourStart"
                     {...register("hourStart")}
@@ -188,7 +188,7 @@ export function CreateAdModal() {
               </SDiv>
             </SDiv>
 
-            <SLabel gap=".5rem" direction="row" className="discord-label">
+            <SLabel gap=".5rem" direction="row" className="flex">
               <Controller
                 control={control}
                 name="useVoiceChannel"

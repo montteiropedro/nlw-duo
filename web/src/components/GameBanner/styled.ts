@@ -5,11 +5,11 @@ import * as Dialog from "@radix-ui/react-dialog"
 export const SDialogTrigger = styled(Dialog.Trigger)`
   cursor: pointer;
   position: relative;
-  max-width: 180px;
   color: #FFF;
   border-radius: ${THEME.BORDER.ROUNDED_LG};
   text-align: left;
   overflow: hidden;
+  outline: none;
 `;
 
 export const SImg = styled.img`
