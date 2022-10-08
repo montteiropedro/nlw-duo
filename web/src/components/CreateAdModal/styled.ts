@@ -57,10 +57,11 @@ export const SLabel = styled.label<Props>`
 
 export const SInput = styled.input`
   padding: .85rem 1rem;
-  background-color: ${THEME.COLORS.ZINC_900};
+  width: 100%;
   color: #FFF;
   font-size: ${THEME.FONT_SIZE.SM};
   border-radius: ${THEME.BORDER.ROUNDED};
+  background-color: ${THEME.COLORS.ZINC_900};
   outline: none;
   transition: all ease-in-out 50000s 1s;
 
@@ -80,12 +81,17 @@ export const SInput = styled.input`
 
   &[type="time"] {
     font-size: ${THEME.FONT_SIZE.XS};
-    padding-inline: .5rem;
+    padding-inline: 1rem;
     
     &::-webkit-calendar-picker-indicator {
       margin: 0;
       padding: 0;
       filter: invert(30%) sepia(87%) saturate(1233%) hue-rotate(235deg) brightness(113%) contrast(93%);
+    }
+
+    @media (min-width: 426px) {
+      margin: 0;
+      padding-inline: .5rem;
     }
   }
 `;
