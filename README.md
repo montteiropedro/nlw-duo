@@ -1,7 +1,7 @@
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <h1>NLW (Duo) eSports</h1>
+<h1 align="center">NLW (Duo) eSports</h1>
+<p align="center">
     <a href="https://i.imgur.com/rFFFTEX.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/rFFFTEX.png" height="300"/></a>
-</div>
+<p>
 
 
 ## 📃 Summary
@@ -133,21 +133,21 @@ Now? Dunno... Just kidding! Well, you can add new things, update old ones. Try t
 
 ## 🖼️ ***Project Screenshots***
 
-<div style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 2rem;">
+<p align="center">
     <a href="https://i.imgur.com/2JTMIBP.jpg" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/2JTMIBP.jpg" height="350"/></a>
     <a href="https://i.imgur.com/wMWXuWE.jpg" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/wMWXuWE.jpg" height="350"/></a>
     <a href="https://i.imgur.com/rFFFTEX.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/rFFFTEX.png" height="350"/></a>
-</div>
+</p>
 
-<div style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 2rem;">
+<p align="center">
     <a href="https://i.imgur.com/0z2dS9m.jpg" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/0z2dS9m.jpg" height="350"/></a>
     <a href="https://i.imgur.com/RXR2VOx.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/RXR2VOx.png" height="350"/></a>
-</div>
+</p>
 
-<div style="display: flex; justify-content: center; gap: 2rem;">
+<p align="center">
     <a href="https://i.imgur.com/dRuVpe5.jpg" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/dRuVpe5.jpg" height="350"/></a>
     <a href="https://i.imgur.com/2Kh84mj.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/2Kh84mj.png" height="350"/></a>
-</div>
+</p>
 
 ---
 <p align="center">
