@@ -19,7 +19,11 @@
 ## 🛠️ ***Technologies***
   
 - *React.JS ([Vite](https://vitejs.dev))*
-- *Node.JS ([Express](https://expressjs.com))*
+    - *[Styled-Components](https://styled-components.com)*
+- *Node.JS*
+    - *[Express](https://expressjs.com)*
+    - *[Express-Session](https://github.com/expressjs/session#readme)*
+    - *[Passport.JS](https://passportjs.org)*
 - *Prisma*
 - *PostgreSQL (in a Docker Container)*
     - *[TablePlus](https://tableplus.com) (Database GUI)*
