@@ -4,7 +4,7 @@ import { GameController, CheckCircle } from "phosphor-react";
 import { SButton, SCard, SCardInfo, SCloseButton, SDiscordButton, SDiscordInfo, SLabel, SText } from "./styled";
 import { THEME } from "../../../utils/theme";
 
-import { AdProps } from "../../GameBanner";
+import { AdProps } from "../../GameCard";
 
 import { ToastMessage } from "../../ToastMessage";
 
@@ -25,8 +25,8 @@ export function Card({
 
   async function handleFetchDiscordUser() {
     try {
-      await api.get(`/ads/${adId}/discord`)
-      .then(res => setDiscord(res.data.discord))
+      await api.get(`/adverts/${adId}/discord`)
+      .then(res => setDiscord(res.data.discord));
     }
     catch (error) {
       if (axios.isAxiosError(error)) {

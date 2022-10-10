@@ -20,6 +20,3 @@ export const SSlider = styled.div`
     width: calc(100% - 9rem);
   }
 `;
-
-export const SReturnStart = styled(ArrowCircleLeft)`
-`;

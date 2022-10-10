@@ -9,7 +9,7 @@ import logoImg from "../../assets/logo-nlw-esports.png";
 import { GameCard, GameCardProps } from "../../components/GameCard";
 import { Background } from "../../components/Background";
 import { Heading } from "../../components/Heading";
-import { BASE_URL } from "@env";
+import { API_URL } from "@env";
 
 export function Home() {
   const [games, setGames] = useState<GameCardProps[]>([]);
@@ -17,7 +17,7 @@ export function Home() {
 
   useEffect(() => {
     try {
-      fetch(`${BASE_URL}/games`)
+      fetch(`${API_URL}/games`)
       .then(res => res.json())
       .then(data => setGames(data));
     }

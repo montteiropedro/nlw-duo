@@ -12,8 +12,8 @@ router.use("/auth", authRoutes);
 router.use("/user", userRoutes);
 
 router.get("/games", GamesController.index);
-router.post("/games/:id/ads", isAuthenticated, AdsController.store);
-router.get("/games/:id/ads", AdsController.index);
-router.get("/ads/:id/discord", AdsController.getDiscord);
+router.post("/games/:id/adverts", isAuthenticated, AdsController.store);
+router.get("/games/:id/adverts", AdsController.index);
+router.get("/adverts/:id/discord", AdsController.getDiscord);
 
 export default router;

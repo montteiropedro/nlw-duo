@@ -5,7 +5,7 @@ import { Arrow } from "./Arrow";
 import { SContainer, SSlider } from "./styled";
 
 interface SliderProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export function Slider({ children }: SliderProps) {

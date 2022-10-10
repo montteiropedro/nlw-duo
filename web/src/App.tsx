@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import "./styles/main.css";
 import logoImg from "./assets/logo-nlw-esports.svg";
 
-import { GameBanner } from "./components/GameBanner";
+import { GameBanner } from "./components/GameCard";
 import { CreateAdBanner } from "./components/CreateAdBanner";
 import { SContainer, SLogo, SNoGamesMessage, SPulseAnimation, STitle } from "./styles/App.styled";
 
 import { Slider } from "./components/Slider";
 import { Loading } from "./components/Loading";
 import { api } from "./api";
+import { GameCardContext } from "./contexts/GameCardContext";
 
 interface GameProps {
   id: string;
@@ -24,6 +25,8 @@ function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const [games, setGames] = useState<GameProps[]>([]);
 
+  const { newAdCreated } = useContext(GameCardContext);
+
   useEffect(() => {
     (async () => {
       await api.get("/games")
@@ -32,7 +35,7 @@ function App() {
 
       setLoading(false);
     })();
-  }, []);
+  }, [newAdCreated]);
 
   return (
     <SContainer className="outer">
@@ -55,6 +58,7 @@ function App() {
                   title={game.title}
                   adsCount={game._count.ads}
                   bannerUrl={game.bannerUrl}
+                  
                 />
               ))}
             </Slider>
@@ -62,6 +66,7 @@ function App() {
             <SNoGamesMessage>Opa! parece que a lista de jogos está vazia.</SNoGamesMessage>
           )
         )}
+
         <CreateAdBanner />
       </SContainer>
     </SContainer>

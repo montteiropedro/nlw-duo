@@ -2,11 +2,12 @@ import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog"
 
 import { SDialogTrigger, SImg, SGradient, STitle, SText } from "./styled";
+
 import { AdsModal } from "../AdsModal";
 
 import { api } from "../../api";
 
-export interface GameBannerProps {
+interface GameCardProps {
   gameId: string;
   title: string;
   adsCount: number;
@@ -23,13 +24,13 @@ export interface AdProps {
   useVoiceChannel: boolean;
 }
 
-export function GameBanner({ gameId, title, adsCount, bannerUrl }: GameBannerProps) {
+export function GameBanner({ gameId, title, adsCount, bannerUrl }: GameCardProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [ads, setAds] = useState<AdProps[]>([]);
 
   async function handleFetchAds() {
-    await api.get(`/games/${gameId}/ads`)
+    await api.get(`/games/${gameId}/adverts`)
     .then(res => setAds(res.data))
     .catch(error => console.log(error));
 
@@ -41,7 +42,7 @@ export function GameBanner({ gameId, title, adsCount, bannerUrl }: GameBannerPro
   return (
     <Dialog.Root open={isModalOpen} onOpenChange={setIsModalOpen}>
       <SDialogTrigger onClick={handleFetchAds} className="keen-slider__slide">
-        <SImg src={bannerUrl} alt="Game Banner" />
+        <SImg src={bannerUrl} alt="Game Card" title={title} />
 
         <SGradient>
           <STitle title={title}>{title}</STitle>

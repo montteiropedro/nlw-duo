@@ -1,4 +1,5 @@
 import * as Select from "@radix-ui/react-select";
+
 import { CaretDown, CaretUp } from "phosphor-react";
 import { SScrollDownButton, SScrollUpButton, SSelectContent, SSelectItem, SSelectTrigger } from "./styled";
 

@@ -16,7 +16,7 @@ import { Heading } from "../../components/Heading";
 import { Loading } from "../../components/Loading";
 
 import { AdvertParams } from "../../@types/navigation";
-import { BASE_URL } from "@env";
+import { API_URL } from "@env";
 
 export function Adverts() {
   const [ads, setAds] = useState<AdvertCardProps[]>([]);
@@ -29,7 +29,7 @@ export function Adverts() {
 
   useEffect(() => {
     try {
-      fetch(`${BASE_URL}/games/${game.id}/ads`)
+      fetch(`${API_URL}/games/${game.id}/adverts`)
       .then(res => res.json())
       .then(data => setAds(data));
 
@@ -54,7 +54,7 @@ export function Adverts() {
   function getUserDiscord(discordId: string) {
     
     try {
-      fetch(`${BASE_URL}/ads/${discordId}/discord`)
+      fetch(`${API_URL}/adverts/${discordId}/discord`)
       .then(res => res.json())
       .then(data => setDuoSelected(data.discord));
     }

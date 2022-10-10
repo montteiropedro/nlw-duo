@@ -9,7 +9,7 @@ import {
 import { Slider } from "./Slider";
 import { Card } from "./Card";
 
-import { AdProps } from "../GameBanner";
+import { AdProps } from "../GameCard";
 import { Loading } from "../Loading";
 
 interface AdsModalProps {

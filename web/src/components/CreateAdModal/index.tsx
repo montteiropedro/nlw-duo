@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { GameCardContext } from "../../contexts/GameCardContext";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -14,9 +15,9 @@ import { RadixToggleGroup } from "../Radix/RadixToggleGroup";
 import { RadixCheckbox } from "../Radix/RadixCheckbox";
 import { RadixSelect } from "../Radix/RadixSelect";
 
+
 import { api } from "../../api";
 import axios from "axios";
-import { open } from "fs";
 
 interface FormProps {
   gameId: string;
@@ -69,22 +70,7 @@ export function CreateAdModal() {
     resolver: zodResolver(AdSchema)
   });
 
-  async function onSubmit(data: FormProps) {
-    try {
-      await api.post(`/games/${data.gameId}/ads`, data, {
-        withCredentials: true
-      });
-
-      setIsModalOpen(false);
-      alert("O anúncio foi criado com sucesso!");
-    }
-    catch(error) {
-      console.log(error);
-      if (axios.isAxiosError(error) && error.response?.status === 401) {
-        alert("Para criar um anúncio é necessário estar logado.");
-      }
-    }
-  }
+  const { newAdCreated, setNewAdCreated } = useContext(GameCardContext);
 
   useEffect(() => {
     try {
@@ -95,6 +81,24 @@ export function CreateAdModal() {
       console.log(error);
     }
   }, []);
+
+  async function onSubmit(data: FormProps) {
+    try {
+      await api.post(`/games/${data.gameId}/adverts`, data, {
+        withCredentials: true
+      });
+
+      setIsModalOpen(false);
+      setNewAdCreated(!newAdCreated);
+      alert("O anúncio foi criado com sucesso!");
+    }
+    catch(error) {
+      console.log(error);
+      if (axios.isAxiosError(error) && error.response?.status === 401) {
+        alert("Para criar um anúncio é necessário estar logado.");
+      }
+    }
+  }
 
   return (
     <Dialog.Root open={isModalOpen} onOpenChange={setIsModalOpen}>

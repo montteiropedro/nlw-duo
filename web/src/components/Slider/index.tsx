@@ -1,11 +1,12 @@
-import { useKeenSlider } from "keen-slider/react";
 import React, { useState } from "react";
+import { useKeenSlider } from "keen-slider/react";
+
 import { Arrow } from "./Arrow";
 
-import { SContainer, SReturnStart, SSlider } from "./styled";
+import { SContainer, SSlider } from "./styled";
 
 interface SliderProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export function Slider({ children }: SliderProps) {

@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState, useEffect, createContext } from "react";
 
 import { api } from "../api";
@@ -18,7 +17,7 @@ interface AuthContext {
 }
 
 interface AuthProvider {
-  children?: React.ReactNode
+  children: React.ReactNode
 }
 
 export const AuthContext = createContext({} as AuthContext);
