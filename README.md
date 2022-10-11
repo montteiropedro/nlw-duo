@@ -1,20 +1,20 @@
 <h1 align="center">NLW (Duo) eSports</h1>
 <p align="center">
-    <a href="https://i.imgur.com/rFFFTEX.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/rFFFTEX.png" height="300"/></a>
+    <a href="https://i.imgur.com/npmcjbV.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/npmcjbV.png" height="300"/></a>
 <p>
 
 
 ## 📃 Summary
 - [*NLW (Duo) eSports*](#nlw-duo-esports)
-    - [🛠️ *Technologies*](#🛠️-technologies)
-    - [🚀 *Deploy*](#🚀-deploy)
-    - [🐘 *Creating a PostgreSQL DB in a Docker Container*](#🐘-creating-a-postgresql-db-in-a-docker-container)
-    - [🧑‍💻 *Running the project locally in your machine*](#🧑‍💻-running-the-project-locally-in-your-machine)
+    - [🛠️ *Technologies*](#%EF%B8%8F-technologies)
+    - [🚀 *Deploy*](#-deploy)
+    - [🐘 *Creating a PostgreSQL DB in a Docker Container*](#-creating-a-postgresql-db-in-a-docker-container)
+    - [🧑‍💻 *Running the project locally in your machine*](#-running-the-project-locally-in-your-machine)
         - The .env file
         - PostgreSQL Database and Migrations Prisma
         - Using a Database GUI Client
-    - [🤔 What now?!](#🤔-what-now)
-    - [🖼️ *Project Screenshots*](#🖼️-project-screenshots)
+    - [🤔 What now?!](#-what-now)
+    - [🖼️ *Project Design Pictures*](#%EF%B8%8F-project-design-pictures)
   
 ## 🛠️ ***Technologies***
   
@@ -123,7 +123,7 @@ Now let's continue. We have some steps before it's all working fine.
     >    | Field     | Value                                                                                                                                                                                                                       |
     >    |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     >    | Host      | Usually in development is `localhost`.                                                                                                                                                                                      |
-    >    | Port      | The same value defined for PostgreSQL Container Port. If you used the command mentioned earlier [here](#🐘-creating-a-postgresql-db-in-a-docker-container) the port will be the default PostgreSQL Port, which is **5432**. |
+    >    | Port      | The same value defined for PostgreSQL Container Port. If you used the command mentioned earlier [here](#-creating-a-postgresql-db-in-a-docker-container) the port will be the default PostgreSQL Port, which is **5432**. |
     >    | Username  | The same value defined for PostgreSQL Container POSTGRES_USER env variable.                                                                                                                                                 |
     >    | Password  | The same value defined for PostgreSQL Container POSTGRES_PASSWORD env variable.                                                                                                                                             |
     >    | Database  | The same value defined for PostgreSQL Container POSTGRES_PASSWORD env variable.                                                                                                                                             |
@@ -135,22 +135,22 @@ Now let's continue. We have some steps before it's all working fine.
 
 Now? Dunno... Just kidding! Well, you can add new things, update old ones. Try to make some changes or some clean in the code (Well, this is something I for sure will have to do 😂), it's up to you.
 
-## 🖼️ ***Project Screenshots***
+## 🖼️ ***Project Design Pictures***
 
 <p align="center">
     <a href="https://i.imgur.com/2JTMIBP.jpg" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/2JTMIBP.jpg" height="350"/></a>
     <a href="https://i.imgur.com/wMWXuWE.jpg" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/wMWXuWE.jpg" height="350"/></a>
-    <a href="https://i.imgur.com/rFFFTEX.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/rFFFTEX.png" height="350"/></a>
+    <a href="https://i.imgur.com/npmcjbV.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/npmcjbV.png" height="350"/></a>
 </p>
 
 <p align="center">
     <a href="https://i.imgur.com/0z2dS9m.jpg" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/0z2dS9m.jpg" height="350"/></a>
-    <a href="https://i.imgur.com/RXR2VOx.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/RXR2VOx.png" height="350"/></a>
+    <a href="https://i.imgur.com/kYdcRHa.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/kYdcRHa.png" height="350"/></a>
 </p>
 
 <p align="center">
     <a href="https://i.imgur.com/dRuVpe5.jpg" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/dRuVpe5.jpg" height="350"/></a>
-    <a href="https://i.imgur.com/2Kh84mj.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/2Kh84mj.png" height="350"/></a>
+    <a href="https://i.imgur.com/XUhqEqM.png" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/XUhqEqM.png" height="350"/></a>
 </p>
 
 ---
