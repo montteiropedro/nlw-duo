@@ -17,9 +17,11 @@
     - [🖼️ *Project Design Pictures*](#%EF%B8%8F-project-design-pictures)
   
 ## 🛠️ ***Technologies***
-  
+
+- *TypeScript*
 - *React.JS ([Vite](https://vitejs.dev))*
     - *[Styled-Components](https://styled-components.com)*
+    - *[Keen-Slider](https://keen-slider.io)*
 - *Node.JS*
     - *[Express](https://expressjs.com)*
     - *[Express-Session](https://github.com/expressjs/session#readme)*
